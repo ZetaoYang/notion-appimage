@@ -18,9 +18,9 @@ env:
   # win or mac, depending on which sources you would like to build from.
   PRODUCT_PLATFORM: win
   NOTION_BINARY: notion.exe
-  WIN_VERSION: 2.0.9
+  WIN_VERSION: 2.0.11
   NOTION_DMG: notion.dmg
-  MAC_VERSION: 2.0.8
+  MAC_VERSION: 2.0.11
   ELECTRON_VERSION: 8.5.3
   RELEASE: 1
   ARCH: x86_64
