@@ -18,10 +18,10 @@ env:
   # win or mac, depending on which sources you would like to build from.
   PRODUCT_PLATFORM: win
   NOTION_BINARY: notion.exe
-  WIN_VERSION: 2.0.9
+  WIN_VERSION: 2.0.11
   NOTION_DMG: notion.dmg
-  MAC_VERSION: 2.0.8
-  ELECTRON_VERSION: 8.5.3
+  MAC_VERSION: 2.0.11
+  ELECTRON_VERSION: 11.1.1
   RELEASE: 1
   ARCH: x86_64
 
@@ -54,7 +54,7 @@ jobs:
             curl
       - name: Install Nodejs Tools
         run: |
-          sudo npm -g install asar electron-packager electron-builder
+          sudo npm -g install asar electron-packager electron-installer-redhat
       - name: Get Notion Installer
         run: |
           wget https://desktop-release.notion-static.com/Notion%20Setup%20${WIN_VERSION}.exe -O ${NOTION_BINARY}
@@ -95,12 +95,7 @@ jobs:
           cd $GITHUB_WORKSPACE/build/dist
           tar -Jcvf notion-linux-x64.tar.xz notion-linux-x64
 
-
-      # electron-builder --linux appImage \
-      #   --projectDir build/dist/notion-linux-x64 \
-      #   --prepackaged /build/out \
-      #   --x64 \
-      - name: Artifact Upload
+      - name: Artifact Upload 1
         uses: actions/upload-artifact@v2
         with:
           name: Artifact
